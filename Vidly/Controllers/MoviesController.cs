@@ -18,6 +18,7 @@ namespace Vidly.Controllers
             {
                 Name = "Shrek!"
             };
+
             var customers = new List<Customer>
             {
                 new Customer { Name = "Custmer 1"},
@@ -41,7 +42,7 @@ namespace Vidly.Controllers
         }
 
         // GET: Movies
-        public ActionResult Index ()
+        public ActionResult Index()
         {
             var movies = GetMovies();
 
@@ -64,5 +65,6 @@ namespace Vidly.Controllers
         {
             return Content(year + "/" + month);
         }
+
     }
 }

@@ -1,9 +1,9 @@
 ﻿@model Vidly.ViewModels.MovieFormViewModel
 @{
-    ViewBag.Title = "New";
+    ViewBag.Title = Model.Title;
 }
 
-<h2>New Movie</h2>
+<h2>@Model.Title</h2>
 
 @using (Html.BeginForm("Save", "Movies"))
 {
@@ -15,11 +15,6 @@
     <div class="form-group">
         @Html.LabelFor(m => m.Movie.ReleaseDate)
         @Html.TextBoxFor(m => m.Movie.ReleaseDate, "{0:d MMM yyyy}", new { @class = "form-control" })
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(m => m.Movie.DateAdded)
-        @Html.TextBoxFor(m => m.Movie.DateAdded, "{0:d MMM yyyy}", new { @class = "form-control" })
     </div>
 
     <div class="form-group">

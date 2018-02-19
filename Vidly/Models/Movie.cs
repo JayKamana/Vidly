@@ -24,7 +24,6 @@ namespace Vidly.Models
         [Display(Name = "Release Date")]
         public DateTime ReleaseDate { get; set; }
 
-        [Display(Name = "Date Added")]
         public DateTime DateAdded { get; set; }
 
         [Display(Name = "Number in Stock")]

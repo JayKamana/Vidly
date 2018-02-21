@@ -40,7 +40,7 @@ namespace Vidly.Controllers.Api
             return Ok(Mapper.Map<Customer, CustomerDto>(customer));
         }
 
-        //POST /api/customer
+        //POST /api/customers
         [HttpPost]
         public IHttpActionResult CreateCustomer (CustomerDto customerDto)
         {

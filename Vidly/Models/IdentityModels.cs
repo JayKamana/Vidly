@@ -11,6 +11,11 @@ namespace Vidly.Models
     public class ApplicationUser : IdentityUser
     {
         [Required]
+        [StringLength(50)]
+        [Phone]
+        public string Phone { get; set; }
+
+        [Required]
         [StringLength(255)]
         public string DrivingLicense { get; set; }
 

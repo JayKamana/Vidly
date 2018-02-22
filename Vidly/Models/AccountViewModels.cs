@@ -6,6 +6,11 @@ namespace Vidly.Models
     public class ExternalLoginConfirmationViewModel
     {
         [Required]
+        [StringLength(255)]
+        [Display(Name = "Driving License")]
+        public string DrivingLicense { get; set; }
+
+        [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
     }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Runtime.Caching;
 using System.Web;
 using System.Web.Mvc;
 using Vidly.Models;
@@ -25,6 +26,7 @@ namespace Vidly.Controllers
 
         public ViewResult Index()
         {
+
             if (User.IsInRole(RoleName.CanManageMovies))
                 return View("List");
 
@@ -34,7 +36,12 @@ namespace Vidly.Controllers
         [Authorize (Roles = RoleName.CanManageMovies)]
         public ActionResult MovieForm()
         {
-            var genres = _context.Genres.ToList();
+            if (MemoryCache.Default["Genres"] == null)
+            {
+                MemoryCache.Default["Genres"] = _context.Genres.ToList();
+            }
+
+            var genres = MemoryCache.Default["Genres"] as IEnumerable<Genre>;
 
             var viewModel = new MovieFormViewModel
             {
